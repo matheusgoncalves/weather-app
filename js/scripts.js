@@ -13,6 +13,8 @@ const countryEl = document.querySelector("#country");
 const humidityEl = document.querySelector("#humidity span");
 const windEl = document.querySelector("#wind span");
 
+const weatherContainer = document.querySelector("#weather-data");
+
 // Funções
 const getWeatherData = async(city) => {
     const apiWeatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}&lang=pt_br`;
@@ -21,7 +23,7 @@ const getWeatherData = async(city) => {
     const data = await res.json();
 
     return data;
-}
+};
 
 const showWeatherData = async (city) => {
     const data = await getWeatherData(city);
@@ -32,7 +34,9 @@ const showWeatherData = async (city) => {
     weatherIconEl.setAttribute("src", `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`);
     countryEl.setAttribute("src", `https://flagsapi.com/${data.sys.country}/flat/64.png`);
     humidityEl.innerText = `${data.main.humidity}%`;
-    windEl.innerText = `${data.wind.speed} km/h`;
+    windEl.innerText = `${data.wind.speed}km/h`;
+
+    weatherContainer.classList.remove("hide");
 };
 
 // Eventos
@@ -42,4 +46,12 @@ searchBtn.addEventListener("click", (e) => {
     const city = cityInput.value;
 
     showWeatherData(city);
+});
+
+cityInput.addEventListener("keyup", (e) => {
+    if (e.code === "Enter") {
+        const city = e.target.value;
+
+        showWeatherData(city);
+    }
 });

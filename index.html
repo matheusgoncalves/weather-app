@@ -17,6 +17,36 @@
 
 </head>
 <body>
-    <h1>Clima Agora</h1>
+    <div class="container">
+        <div class="form">
+            <h3>Confira o clima de uma cidade:</h3>
+            <div class="form-input-container">
+                <input type="text" name="city-input" id="city-input" placeholder="Digite o nome da cidade">
+                <button id="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+        <div id="weather-data">
+            <h2><i class="fa-solid fa-location-dot"></i></h2>
+            <span id="city">Maceió</span>
+            <img src="" alt="Bandeira do país" id="country">
+            <p id="temperature"><span>38</span>&deg;C</p>
+            <div id="description-container">
+                <p id="description">Nublado</p>
+                <img src="" alt="Condições do tempo" id="weather-icon">
+            </div>
+            <div id="details-container">
+                <p id="umidity">
+                    <i class="fa-solid fa-droplet"></i>
+                    <span>48%</span>
+                </p>
+                <p id="umidity">
+                    <i class="fa-solid fa-wind"></i>
+                    <span>3Km/h</span>
+                </p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
